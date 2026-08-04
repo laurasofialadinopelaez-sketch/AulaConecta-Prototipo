@@ -3,7 +3,8 @@ body{
     font-family: 'Poppins', sans-serif;
     background-color: white;
 }
-/*Pantalla iniciar sesion*/
+
+/*Encabezado*/
 header{
     background-color: #78e34a;
     color: white;
@@ -11,14 +12,37 @@ header{
     justify-content: space-between;
     align-items: center;
 }
+
+.menu{}
+
+/*Pantalla iniciar sesion*/
+.boton-del-header{
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
 .contenedor-inicio-sesion{
-    max-width: 400px;
+    max-width: 100px;
     border-radius: 20px;
     border: 2px solid #78e34a;
+    background-color: white;
+    color: black;
     padding: 30px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+
+.contenedor-inicio-sesion .boton-contendor{
+    border-radius: 50px;
+    background-color: #78e34a;
+    color: black;
+}
+
 /*Pantalla principal o tablero*/
 /*Pantalla lista de actividades*/
 /*Pantalla detalle de una actividad*/
