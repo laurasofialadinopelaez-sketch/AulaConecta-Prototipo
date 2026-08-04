@@ -39,4 +39,33 @@ function validarEmail(email) {
     return email.toLowerCase().endsWith(dominioInstitucional);
 }
 
-// Cambios en navegación
+// Cambios en navegación entre secciones
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleccionar todos los botones/enlaces del menú de navegación
+    const navLinks = document.querySelectorAll('.nav-link'); // Asegúrate de darles esta clase en HTML
+    
+    const secciones = document.querySelectorAll('.seccion-contenido');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const seccionDestino = link.getAttribute('data-seccion');
+
+            if (seccionDestino === 'modo-oscuro') {
+                document.body.classList.toggle('dark-theme');
+                return;
+            }
+
+            secciones.forEach(seccion => {
+                seccion.style.display = 'none';
+            });
+
+            const seccionActiva = document.getElementById(seccionDestino);
+            if (seccionActiva) {
+                seccionActiva.style.display = 'block';
+            }
+        });
+    });
+});
