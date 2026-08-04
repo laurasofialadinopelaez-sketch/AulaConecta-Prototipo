@@ -1,1 +1,26 @@
-
+body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+}
+/*Pantalla iniciar sesion*/
+header{
+    background-color: #78e34a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.contenedor-inicio-sesion{
+    max-width: 400px;
+    border-radius: 20px;
+    border: 2px solid #78e34a;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+/*Pantalla principal o tablero*/
+/*Pantalla lista de actividades*/
+/*Pantalla detalle de una actividad*/
+/*Pantalla configuracion del perfil*/
+/*Pantalla creacion de actividades (Instructor)*/
