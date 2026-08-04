@@ -42,8 +42,7 @@ function validarEmail(email) {
 // Cambios en navegación entre secciones
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Seleccionar todos los botones/enlaces del menú de navegación
-    const navLinks = document.querySelectorAll('.nav-link'); // Asegúrate de darles esta clase en HTML
+    const navLinks = document.querySelectorAll('.nav-link');
     
     const secciones = document.querySelectorAll('.seccion-contenido');
 
@@ -68,4 +67,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+});
+
+
+// CAMBIO DE TEMA (CLARO/OSCURO)
+document.addEventListener('DOMContentLoaded', () => {
+    const btnModoOscuro = document.getElementById('btn-modo-oscuro'); // ID de tu botón o enlace
+
+    const temaGuardado = localStorage.getItem('tema');
+    if (temaGuardado === 'dark') {
+        document.body.classList.add('dark-theme');
+    }
+
+    if (btnModoOscuro) {
+        btnModoOscuro.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            // Alternar la clase .dark-theme en el <body>
+            document.body.classList.toggle('dark-theme');
+
+            // Guardar la preferencia en localStorage
+            if (document.body.classList.contains('dark-theme')) {
+                localStorage.setItem('tema', 'dark');
+            } else {
+                localStorage.setItem('tema', 'light');
+            }
+        });
+    }
 });
