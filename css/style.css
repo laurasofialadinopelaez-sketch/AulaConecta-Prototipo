@@ -2,12 +2,11 @@
     --verde:#78e34a;
     --fondo:#ffffff;
     --fondo-contenedor:#e6e6e6;
-    --texto: #000000;
+    --texto:#000000;
     --texto-claro:var(--fondo);
     --boton-verde:var(--verde);
     --boton-rojo:#ff3131;
     --verde-secundario:#388118;
-
 }
 
 body{
@@ -24,7 +23,7 @@ header{
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding: 5px 15px;
+    padding: 20px 40px;
 }
 
 .btn-header{
@@ -44,7 +43,76 @@ header{
     cursor: pointer;
 }
 
+/*Menu*/
+details{
+    position: static;
+}
+
+summary{
+    cursor: pointer;
+    font-size: 2rem;
+    list-style: none;
+    color: var(--texto-claro);
+    position: relative;
+    z-index: 1001;
+}
+
+summary::-webkit-details-marker{
+    display: none;
+}
+
+
+details[open] nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    max-width: 400px;
+    height: 100vh;
+    padding: 80px 20px 30px;
+    box-sizing: border-box;
+    background-color: var(--verde-secundario) !important;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+details[open] .container-fluid,
+details[open] .navbar-collapse,
+details[open] .navbar-nav{
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100%;
+}
+
+details[open] .navbar-toggler,
+details[open] .navbar-brand{
+    display: none !important;
+}
+
+details[open] .navbar-nav{
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+details[open] .nav-item{
+    width: 100%;
+}
+
+details[open] .nav-link{
+    color: var(--fondo) !important;
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    text-align: center;
+    padding: 10px 15px !important;
+    display: block;
+    text-decoration: none;
+}
+
 /*Pantalla iniciar sesion*/
+
 .container{
     min-height: 100vh;
     display: flex;
@@ -60,7 +128,7 @@ header{
     border: 2px solid var(--verde);
     background-color: var(--fondo);
     color: var(--texto);
-    padding: 18px ;
+    padding: 18px;
     box-sizing: border-box;
 }
 
@@ -125,31 +193,110 @@ input:focus{
 .btn-entrar:hover{
     transform: scale(1.03);
 }
+
 /*Pantalla principal o tablero*/
-
-.contenedor-principal{
-    border-radius: 30px;
-    border: none;
-    background-color: var(--fondo);
-    display:inline;
+main{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.contenedor-acciones{
-
+main p{
+    margin: 0;
 }
 
-#pantalla-principal h1{
-    color:#388118;
+main p:first-child{
+    grid-column: 1 / -1;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--texto);
+    margin-bottom: 10px;
 }
 
-.contenedor-actividades h2{
-    text-align: center;
+main p + p{
+    background-color: var(--fondo-contenedor);
+    padding: 18px;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--texto);
 }
 
-.contenedor-actividades span{
+main h2{
+    grid-column: 1 / -1;
+    color: var(--verde-secundario);
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 25px 0 10px;
+}
+
+main article{
+    background-color: var(--fondo-contenedor);
+    padding: 22px;
+    border-radius: 16px;
+}
+
+main article h3{
+    margin: 0 0 6px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--texto);
+}
+
+main article p{
+    margin: 0 0 4px;
+    color: #555555;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+main article p:last-of-type{
+    margin-bottom: 18px;
     color: var(--boton-rojo);
+    font-weight: 600;
+    font-size: 0.95rem;
 }
+
+.btn-actividad{
+    background-color: var(--verde);
+    color: var(--texto);
+    border: none;
+    padding: 8px 22px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
 /*Pantalla lista de actividades*/
+
 /*Pantalla detalle de una actividad*/
+
 /*Pantalla configuracion del perfil*/
+
 /*Pantalla creacion de actividades (Instructor)*/
+
+/*footer*/
+
+footer{
+    text-align: center;
+    padding: 30px 20px;
+    color: #777777;
+    font-size: 0.9rem;
+}
+
+
+@media (max-width: 900px){
+    main{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px){
+    main{
+        grid-template-columns: 1fr;
+    }
+}
